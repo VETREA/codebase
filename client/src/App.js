@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Auth from "./components/Auth";
 
-const API = "http://localhost:5000/api";
+const API = "https://codebase-production-e5be.up.railway.app/api";
 
 export default function App() {
   const [token, setToken] = useState("");

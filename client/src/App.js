@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import Auth from "./components/Auth";
 
@@ -25,7 +25,7 @@ export default function App() {
   }, []);
 
   // FETCH DATA
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     if (!token) return;
     try {
       const [usersRes, tasksRes, projectsRes] = await Promise.all([
@@ -39,11 +39,11 @@ export default function App() {
     } catch (err) {
       console.error("Error fetching data", err);
     }
-  };
+  }, [token]);
 
   useEffect(() => {
     fetchData();
-  }, [token]);
+  }, [fetchData]);
 
   // LOGOUT
   const logout = () => {

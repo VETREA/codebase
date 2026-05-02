@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const API = "http://localhost:5000/api";
+const API = "https://codebase-production-e5be.up.railway.app/api";
 
 const Auth = ({ setToken, setUser }) => {
   const [isLogin, setIsLogin] = useState(true);
